@@ -3,7 +3,7 @@ class Persona:
 	def __init__(self, edad, nombre):
 		self.edad = edad
 		self.nombre = nombre
-		print("Se ha creado a {} con {} años de edad. \n".
+		print("Se ha creado a {} con {} años de edad.\n".
 			format(self.nombre, self.edad))
 
 	# La sintaxis para diccionarios
@@ -19,14 +19,18 @@ class Deportista(Persona):
 	def __init__(self, edad, nombre, deporte):
 		self.edad = edad
 		self.nombre = nombre
-		self.deporte = deporte
+		# Encapsulamiento del atributo deporte
+		self.__deporte = deporte
 
-		print("Se ha creado a {} con {} años de edad practicante de {}. \n".
-			format(self.nombre, self.edad, self.deporte))
+		print("Se ha creado a {} con {} años de edad y practica {}.\n".
+			format(self.nombre, self.edad, self.verDeporte()))
 
 	def practicarDeporte(self):
-		print("{}: voy a practicar\n".
+		print("{}: Voy a practicar\n".
 				format(self.nombre))
+
+	def verDeporte(self):
+		return self.__deporte
 
 
 # Instancias
@@ -41,10 +45,10 @@ Boromir.hablar(
 	f2 = "Oh rayios!!!")
 
 # Instancia de la nueva clase
-Michael_Phelps = Deportista(35,  "Michael", "Natación")
-Michael_Phelps.practicarDeporte()
+Michael = Deportista(35,  "Michael", "natación")
+Michael.practicarDeporte()
 
-Michael_Phelps.hablar(
+Michael.hablar(
 	f1 = "Me llaman la bala de Baltimor y no me gusta mi segundo nombre, Fred",
 	f2 = "Debute en el 2000 y con un total de 28 medallas en mi carrera profesional",
 	f3 = "me retiré en el 2016.")
