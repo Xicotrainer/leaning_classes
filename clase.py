@@ -12,7 +12,8 @@ class Persona:
 
 	@abstractmethod
 	# La sintaxis para diccionarios
-	def hablar(self): pass
+	def hablar(self, *dialogo):
+		pass
 
 
 class Deportista(Persona):
@@ -24,7 +25,7 @@ class Deportista(Persona):
 		# Encapsulamiento del atributo deporte
 		self.__deporte = deporte
 
-		print("Se ha creado a {} con {} años de edad y practica {}.\n".
+		print("Se ha creado a {} con {} años de edad, es practicante de {}.\n".
 			format(self.nombre, self.edad, self.verDeporte()))
 
 	def practicarDeporte(self):
@@ -34,28 +35,18 @@ class Deportista(Persona):
 	def verDeporte(self):
 		return self.__deporte
 
-	# Tuplas 
-	def hablar(self, *palabras):
-		for frase in palabras:
-			print ("{}: {} \n".
-				format(self.nombre, frase))
+	# Parametro para tuplas 
+	def hablar(self, *dialogo):
+		for linea in dialogo:
+			print("{}: {} \n".
+				format(self.nombre, linea))
 
-
-# Instancias
-Aragorn = Persona(37, "Aragorn")
-Boromir = Persona(36, "Boromir")
-
-Aragorn.hablar(["Voy a ser el prota en la parte III.","Me guta, hmmm jmm."])
-
-Boromir.hablar(
-	"A mi me carga chandingas en la peli I.", 
-	"Oh rayios!!!")
 
 # Instancia de la nueva clase
 Michael = Deportista(35,  "Michael", "natación")
-Michael.practicarDeporte()
 
 Michael.hablar(
-	"Me llaman la bala de Baltimor y no me gusta mi segundo nombre, Fred.",
-	"Debute en el 2000 y con un total de 28 medallas en mi carrera profesional",
-	"y me retiré en el 2016.")
+	"Me llaman la bala de Baltimor, no me gusta mi segundo nombre: Fred.",
+	"Debute en el 2000 y con un total de 28 medallas en mi carrera profesional,"
+	"me retiré en el 2016."
+	)
