@@ -1,7 +1,6 @@
 from io import open
 
 def file_w(file_name):
-	
 	file = open(file_name, "w")
 
 	print(file_name, "was created")
@@ -13,8 +12,12 @@ def file_w(file_name):
 	file.close()
 
 
-#def file_w():
-#	pass:
+# There is a file to access
+def file_r(file_name):
+	file = open(file_name, "r")
+	content = file.read()
+	file.close()
+	print(content)
 
 
 def main():
@@ -24,7 +27,9 @@ def main():
 	print("We area going to create a new file ussing python")
 	file_name = input("Please, type its name: ")
 
-	file_w(file_name+".txt")
+	file_w(file_name + ".txt")
 
+	print("The new file contents")
+	file_r(file_name + ".txt")
 
 main()
